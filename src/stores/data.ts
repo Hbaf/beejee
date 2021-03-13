@@ -76,11 +76,16 @@ export default class DataStore {
 
 	async editTask(id: TaskId, text: string) {
 		try {
+			if (!this.authStore.isTokenExist()) {
+				this.uiStore.addWarningMessage('Необходима авторизация');
+
+				return;
+			}
 			const task = this.taskList.find(taskInst => taskInst.id === id);
-			if (task) {
+			if (task && task.text !== text) {
 				const data = {
 					token: this.authStore.token,
-					status: task.status & 10 ? task.status : task.status + 1,
+					status: task.status % 10 ? task.status : task.status + 1,
 					text: simpleSanitier(text.trim()),
 				};
 				const response = await this.apiStore.editTask({ taskId: id }, data);
