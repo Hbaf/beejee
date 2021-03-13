@@ -15,6 +15,8 @@ export default class IndexStore {
 
 	data: DataStore;
 
+	currentUrl = '';
+
 	constructor() {
 		this.ui = new UiStore();
 		this.api = new ApiStore();
@@ -22,5 +24,9 @@ export default class IndexStore {
 		this.data = new DataStore(this.api, this.ui, this.auth);
 
 		makeAutoObservable(this);
+	}
+
+	setCurrentUrl(url: string) {
+		this.currentUrl = url;
 	}
 }

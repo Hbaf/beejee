@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useHistory } from 'react-router';
 import { inject } from 'mobx-react';
 import { observer } from 'mobx-react-lite';
@@ -16,6 +16,7 @@ interface LoginPageProps {
 }
 
 const LoginPage: React.FC<LoginPageProps> = inject('store')(observer(props => {
+	useEffect(() => props.store!.setCurrentUrl(window.location.href));
 	const store = props.store!.auth;
 
 	const history = useHistory();

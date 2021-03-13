@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { inject } from 'mobx-react';
 import { observer } from 'mobx-react-lite';
 import classNames from 'classnames';
@@ -19,6 +19,7 @@ interface IndexPageProps {
 }
 
 const IndexPage: React.FC<IndexPageProps> = inject('store')(observer(props => {
+	useEffect(() => props.store!.setCurrentUrl(window.location.href));
 	const store = props.store!.data;
 	const canEdit = Boolean(props.store!.auth.token);
 
