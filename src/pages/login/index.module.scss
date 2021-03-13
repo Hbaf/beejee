@@ -1,0 +1,45 @@
+.container {
+	position: relative;
+
+	min-height: calc(100vh - 60px);
+
+	box-sizing: border-box;
+
+	.formWrapper {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+
+		background: linear-gradient(to bottom, #fffefc, #e6e6e6) no-repeat;
+
+		transform: translate(-50%, -50%);
+	}
+
+	.form {
+		width: 300px;
+
+		padding: 60px 20px;
+	}
+
+	.title {
+		margin: 0;
+
+		text-align: center;
+	}
+
+	.text {
+		margin: 10px 0 0;
+
+		text-align: center;
+	}
+
+	.field {
+		width: 100%;
+
+		margin-top: 20px;
+	}
+
+	.button {
+		margin-top: 30px;
+	}
+}
