@@ -12,7 +12,7 @@ export default class UiStore {
 	}
 
 	private addMessage(type: UserMessageType, text: string) {
-		const id = String(new Date().getMilliseconds());
+		const id = String(new Date().getTime());
 		this.messageList.push({ id, type, text });
 		setTimeout(() => this.removeMessage(id), DEFAULT_MESSAGE_TIMEOUT);
 	}

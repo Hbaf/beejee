@@ -69,6 +69,8 @@ export default class DataStore {
 				}
 			} else {
 				this.uiStore.addWarningMessage('Поле email содержит невалидный email');
+
+				return;
 			}
 		} catch (e) { /** */ }
 		this.uiStore.addErrorMessage('Не удалось создать задачу');
